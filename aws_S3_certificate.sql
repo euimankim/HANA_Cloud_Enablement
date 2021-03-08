@@ -1,7 +1,9 @@
 -- DBADMIN 계정으로 실행
 
+-- Step 1
 create pse HTTPS;
 
+-- Step 2
 create certificate from
 '-----BEGIN CERTIFICATE-----
 MIIEYzCCA0ugAwIBAgIQAYL4CY6i5ia5GjsnhB+5rzANBgkqhkiG9w0BAQsFADBa
@@ -31,8 +33,11 @@ upcHi9nzBhDFKdT3uhaQqNBU4UtJx5g=
 -----END CERTIFICATE-----'
 comment 'S3';
 
+-- Step 3
 select CERTIFICATE_ID from CERTIFICATES where COMMENT = 'S3'
 
-alter pse HTTPS add certificate 157211;
+-- Step 4
+alter pse HTTPS add certificate <Certificate_Id>;
 
+-- Step 5
 set pse HTTPS purpose REMOTE SOURCE;
