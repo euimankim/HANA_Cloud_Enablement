@@ -1,9 +1,9 @@
 -- DBADMIN 계정으로 실행
 
--- Step 1
+-- 1 단계 SQL
 create pse HTTPS;
 
--- Step 2
+-- 2 단계 SQL
 create certificate from
 '-----BEGIN CERTIFICATE-----
 MIIEYzCCA0ugAwIBAgIQAYL4CY6i5ia5GjsnhB+5rzANBgkqhkiG9w0BAQsFADBa
@@ -33,11 +33,11 @@ upcHi9nzBhDFKdT3uhaQqNBU4UtJx5g=
 -----END CERTIFICATE-----'
 comment 'S3';
 
--- Step 3
+-- 3 단계 SQL
 select CERTIFICATE_ID from CERTIFICATES where COMMENT = 'S3'
 
--- Step 4
+-- 4 단계 SQL
 alter pse HTTPS add certificate <Certificate_Id>;
 
--- Step 5
+-- 5 단계 SQL
 set pse HTTPS purpose REMOTE SOURCE;
