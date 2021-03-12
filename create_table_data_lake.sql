@@ -1,3 +1,4 @@
+-- 1 단계 SQL
 CALL SYSRDL#CG.REMOTE_EXECUTE ('
 
 CREATE TABLE CATALOG_SALES
@@ -67,3 +68,9 @@ CREATE TABLE STORE_SALES
     PRIMARY KEY (SS_ITEM_SK, SS_TICKET_NUMBER)
 );
 ');
+
+-- 2 단계 SQL
+select count(*) from DL_CATALOG_SALES;
+    
+-- 3 단계 SQL
+select count(*) from DL_STORE_SALES;
