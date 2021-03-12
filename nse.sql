@@ -1,5 +1,4 @@
 -- DEVUSER로 실행
-
 -- 1 단계 SQL
 select table_name, load_unit from tables where table_name = 'CATALOG_SALES';
 
@@ -26,6 +25,14 @@ select count(*), sum(cs_list_price) from CATALOG_SALES
 group by cs_item_sk;
 
 -- DBADMIN으로 실행
-
 -- 6 단계 SQL
+select port, max_size, allocated_size, used_size from M_BUFFER_CACHE_STATISTICS;
+
+-- DEVUSER로 실행
+-- 7 단계 SQL
+select count(*), sum(cs_list_price), sum(cs_net_paid) from CATALOG_SALES
+group by cs_item_sk, cs_bill_customer_sk;
+
+-- DBADMIN으로 실행
+-- 8 단계 SQL
 select port, max_size, allocated_size, used_size from M_BUFFER_CACHE_STATISTICS;
